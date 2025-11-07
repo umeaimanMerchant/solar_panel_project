@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+solar_panel_fesibility_prediction.egg-info/PKG-INFO
+solar_panel_fesibility_prediction.egg-info/SOURCES.txt
+solar_panel_fesibility_prediction.egg-info/dependency_links.txt
+solar_panel_fesibility_prediction.egg-info/requires.txt
+solar_panel_fesibility_prediction.egg-info/top_level.txt
