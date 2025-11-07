@@ -1,6 +1,7 @@
 Metadata-Version: 2.4
 Name: solar_panel_fesibility_prediction
 Version: 0.0.1
+Summary: End to end ML project for solar panel fesibility prediction
 Author: Iman
 Author-email: merchantumeaiman@gmail.com
 License-File: LICENSE
@@ -12,7 +13,29 @@ Requires-Dist: scikit-learn
 Requires-Dist: catboost
 Requires-Dist: xgboost
 Requires-Dist: Flask
+Requires-Dist: Flask-Cors
+Requires-Dist: mlflow==2.2.2
+Requires-Dist: dvc
+Requires-Dist: gdown
+Requires-Dist: ensure==1.0.2
+Requires-Dist: notebook
+Requires-Dist: python-dotenv
+Requires-Dist: tqdm
+Requires-Dist: joblib
+Requires-Dist: types-PyYAML
+Requires-Dist: scipy
 Dynamic: author
 Dynamic: author-email
+Dynamic: description
 Dynamic: license-file
 Dynamic: requires-dist
+Dynamic: summary
+
+# Solar Panel End to End Project
+
+### Setup
+
+1. requirements.txt - all libraries
+2. setup.py - helps in setup all requirements
+3. start working on the ML model
+4. Analysis is in progress

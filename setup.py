@@ -3,8 +3,12 @@ This is setup file for the project
 """
 
 
-from setuptools import find_packages,setup
+from setuptools import find_packages, setup
 from typing import List
+
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
 HYPEN_E_DOT='-e .'
 def get_requirements(file_path:str)->List[str]:
@@ -22,11 +26,22 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-name='solar_panel_fesibility_prediction',
-version='0.0.1',
-author='Iman',
-author_email='merchantumeaiman@gmail.com',
-packages=find_packages(),
-install_requires=get_requirements('requirements.txt')
+    name='solar_panel_fesibility_prediction',
+    version='0.0.1',
+    author='Iman',
+    author_email='merchantumeaiman@gmail.com',
+    packages=find_packages(),
+    install_requires=get_requirements('requirements.txt'),
+    description="End to end ML project for solar panel fesibility prediction",
+    long_description=long_description,
+    long_description_content="text/markdown"
+    # url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
+    # project_urls={
+    #     "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",
+    # },
+    # package_dir={"": "src"},
+    # packages=setuptools.find_packages(where="src")
 
 )
+
+    
