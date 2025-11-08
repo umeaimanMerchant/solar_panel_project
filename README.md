@@ -6,3 +6,71 @@
 2. setup.py - helps in setup all requirements
 3. start working on the ML model
 4. Analysis is in progress
+
+
+## Workflows
+Update config.yaml
+Update secrets.yaml [Optional]
+Update params.yaml
+Update the entity
+Update the configuration manager in src config
+Update the components
+Update the pipeline
+Update the main.py
+Update the dvc.yaml
+app.py
+
+
+
+
+here we are trying to store thing in modular manner
+
+1. we have constant that is the ymal files
+2. in the ymal file we have secreat records or connect with the db
+3. for data injection we will start with creating artifact storeage using code
+4. then we have configuration manager which will run code to create the artifacr folder
+5. it will also have data configuration (stored in enity) class called, 
+6. data configurtaion class in entity hold the datatype, where has the manager get the data from ymal and sends to the data config class
+7. this then has to go to the component data ingestion- here is where there is code to actually downlod zip file and then extract it.
+8. finaally we will have the pipeline which will move the data from all the parts.
+Modular Data Ingestion Steps (Simplified)
+
+
+### **Modular Data Ingestion Steps (Simplified)**
+
+1. **Create YAML Constants**
+
+   * Store all configuration values (paths, URLs, DB info, secrets) in YAML files.
+
+2. **Manage Secrets / DB Connection**
+
+   * Read secrets securely from YAML or secret manager.
+   * Use these for DB connections or API keys.
+
+3. **Create Artifact Storage**
+
+   * Write code to create an `artifacts/` folder structure (for raw, extracted, processed data).
+
+4. **Build Configuration Manager**
+
+   * Load YAML files.
+   * Create the artifact folders automatically.
+   * Pass values to data config entities.
+
+5. **Define Data Configuration Entity**
+
+   * A simple class holding ingestion parameters (URL, paths, format, etc.).
+
+6. **Link Manager to Entity**
+
+   * Manager reads YAML and initializes the entity with correct values.
+
+7. **Implement Data Ingestion Component**
+
+   * Download the dataset (ZIP).
+   * Extract it to the artifact folder.
+
+8. **Build Pipeline**
+
+   * Orchestrate all steps:
+     Constant with Ymal file- Config Manager → Entity → Ingestion → Output to next stage.
