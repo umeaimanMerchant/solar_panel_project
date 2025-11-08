@@ -9,14 +9,14 @@ configBox is used to handle configuration data as class attributes. dictionary a
 import os
 from box.exceptions import BoxValueError
 import yaml
-from Classifier import logger
+from src.Classifier import logger
 import json
 import joblib
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
-import base64
+import pandas as pd
 
 
 
@@ -35,9 +35,10 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         ConfigBox: ConfigBox type
     """
     try:
+        print(f"Reading YAML from: {path_to_yaml.resolve()}")  # Add this
         with open(path_to_yaml) as yaml_file:
             content = yaml.safe_load(yaml_file)
-            logger.info(f"yaml file: {path_to_yaml} loaded successfully")
+            print(f"Keys in YAML: {list(content.keys())}")     # And this
             return ConfigBox(content)
     except BoxValueError:
         raise ValueError("yaml file is empty")
@@ -133,3 +134,9 @@ def get_size(path: Path) -> str:
     return f"~ {size_in_kb} KB"
 
 
+@ensure_annotations
+def load_data(path: str) -> pd.DataFrame:
+    """Load raw dataset from CSV or Parquet."""
+    df = pd.read_csv(path)
+    print(f"Loaded dataset: {df.shape[0]} rows, {df.shape[1]} columns")
+    return df

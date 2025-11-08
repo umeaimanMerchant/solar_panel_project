@@ -9,7 +9,7 @@ Flask
 Flask-Cors
 mlflow==2.2.2
 dvc
-gdown
+# gdown
 ensure==1.0.2
 notebook
 python-dotenv
@@ -17,4 +17,6 @@ tqdm
 joblib
 types-PyYAML
 scipy
+jupyter
+jupyterlab
 -e .

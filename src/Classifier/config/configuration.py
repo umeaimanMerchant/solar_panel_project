@@ -1,7 +1,7 @@
-from Classifier.constants import *
+from src.Classifier.constants import *
 import os
-from utils.common import read_yaml, create_directories
-from Classifier.entity.config_entity import DataIngestionConfig
+from src.Classifier.utils.common import read_yaml, create_directories
+from src.Classifier.entity.config_entity import DataIngestionConfig, DataTransformationConfig
 
 
 class ConfigurationManager:
@@ -30,3 +30,15 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+    
+    def get_data_transformation_config(self)-> DataTransformationConfig:
+        config = self.config.data_transformation    
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            transformed_data_file=config.transformed_data_file,
+            source_data_file=config.source_data_file,
+            selected_columns=config.selected_columns
+        )
+        return data_transformation_config
+    

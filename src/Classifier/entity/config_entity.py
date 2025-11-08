@@ -11,3 +11,9 @@ class DataIngestionConfig:
     local_data_file: Path
     unzip_dir: Path
 
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    transformed_data_file: Path
+    source_data_file: Path
+    selected_columns: list 

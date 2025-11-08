@@ -1,0 +1,459 @@
+[2025-11-08 13:35:38,629: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:35:38,630: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2025-11-08 13:35:38,631: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-11-08 13:35:38,632: INFO: common: created directory at: artifacts]
+[2025-11-08 13:35:38,632: ERROR: stage_2_data_transformation: "'ConfigBox' object has no attribute 'data_transformation'"]
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 14, in main
+    data_transformation_config = config.get_data_transformation_config()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/config/configuration.py", line 35, in get_data_transformation_config
+    config = self.config.data_transformation
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+[2025-11-08 13:47:56,637: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:47:56,639: INFO: common: created directory at: artifacts]
+[2025-11-08 13:47:56,639: ERROR: stage_2_data_transformation: "'ConfigBox' object has no attribute 'data_transformation'"]
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 14, in main
+    data_transformation_config = config.get_data_transformation_config()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/config/configuration.py", line 35, in get_data_transformation_config
+    config = self.config.data_transformation
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+[2025-11-08 13:48:11,475: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:48:11,477: INFO: common: created directory at: artifacts]
+[2025-11-08 13:48:11,477: ERROR: stage_2_data_transformation: "'ConfigBox' object has no attribute 'data_transformation'"]
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'data_transformation'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'data_transformation'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 14, in main
+    data_transformation_config = config.get_data_transformation_config()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/config/configuration.py", line 35, in get_data_transformation_config
+    config = self.config.data_transformation
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'data_transformation'"
+[2025-11-08 13:49:10,431: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:49:10,433: INFO: common: created directory at: artifacts]
+[2025-11-08 13:49:10,433: ERROR: stage_2_data_transformation: "'ConfigBox' object has no attribute 'selected_columns'"]
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'selected_columns'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'selected_columns'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'selected_columns'. Did you mean: 'selected_features'?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'selected_columns'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'selected_columns'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'selected_columns'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'selected_columns'. Did you mean: 'selected_features'?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 14, in main
+    data_transformation_config = config.get_data_transformation_config()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/config/configuration.py", line 41, in get_data_transformation_config
+    selected_columns=config.selected_columns
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'selected_columns'". Did you mean: 'selected_features'?
+[2025-11-08 13:49:49,955: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:49:49,956: INFO: common: created directory at: artifacts]
+[2025-11-08 13:49:49,956: ERROR: stage_2_data_transformation: Argument path of type <class 'str'> to <function load_data at 0x108ebb920> does not match annotation type <class 'pathlib.Path'>]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 16, in main
+    data_loaded = load_data(data_transformation_config.transformed_data_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/ensure/main.py", line 870, in __call__
+    raise EnsureError(msg.format(arg=arg, f=self.f, t=templ, valt=type(value)))
+ensure.main.EnsureError: Argument path of type <class 'str'> to <function load_data at 0x108ebb920> does not match annotation type <class 'pathlib.Path'>
+[2025-11-08 13:52:16,386: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:52:16,389: INFO: common: created directory at: artifacts]
+[2025-11-08 13:52:16,389: ERROR: stage_2_data_transformation: Argument path of type <class 'str'> to <function load_data at 0x1080a3920> does not match annotation type <class 'pathlib.Path'>]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 16, in main
+    data_loaded = load_data(data_transformation_config.transformed_data_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/ensure/main.py", line 870, in __call__
+    raise EnsureError(msg.format(arg=arg, f=self.f, t=templ, valt=type(value)))
+ensure.main.EnsureError: Argument path of type <class 'str'> to <function load_data at 0x1080a3920> does not match annotation type <class 'pathlib.Path'>
+[2025-11-08 13:53:10,950: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:53:10,951: INFO: common: created directory at: artifacts]
+[2025-11-08 13:53:10,952: ERROR: stage_2_data_transformation: [Errno 2] No such file or directory: 'artifacts/data/transformed_data.csv']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 16, in main
+    data_loaded = load_data(data_transformation_config.transformed_data_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/ensure/main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/utils/common.py", line 140, in load_data
+    df = pd.read_csv(path)
+         ^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data/transformed_data.csv'
+[2025-11-08 13:54:11,244: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:54:11,245: INFO: common: created directory at: artifacts]
+[2025-11-08 13:54:11,246: ERROR: stage_2_data_transformation: [Errno 2] No such file or directory: 'artifacts/data_ingestion/Solar_Footprints.csv']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 16, in main
+    data_loaded = load_data(data_transformation_config.source_data_file)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/ensure/main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/utils/common.py", line 140, in load_data
+    df = pd.read_csv(path)
+         ^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/Solar_Footprints.csv'
+[2025-11-08 13:54:36,916: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:54:36,917: INFO: common: created directory at: artifacts]
+[2025-11-08 13:54:36,929: ERROR: stage_2_data_transformation: "['Region'] not in index"]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 50, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 20, in main
+    data_loaded = data_transformation.columns_selector(data_loaded, columns_to_select)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/data_transformation.py", line 19, in columns_selector
+    return data[selected_columns]
+           ~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/frame.py", line 4119, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6264, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['Region'] not in index"
+[2025-11-08 13:59:23,424: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 13:59:23,426: INFO: common: created directory at: artifacts]
+[2025-11-08 13:59:23,436: ERROR: stage_2_data_transformation: DataTransformation.transform_county_to_region() got multiple values for argument 'county_col']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 52, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 19, in main
+    data_loaded = data_transformation.transform_county_to_region(data_loaded, county_col='County')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataTransformation.transform_county_to_region() got multiple values for argument 'county_col'
+[2025-11-08 14:00:05,199: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:00:05,200: INFO: common: created directory at: artifacts]
+[2025-11-08 14:00:05,208: ERROR: stage_2_data_transformation: DataTransformation.transform_county_to_region() got multiple values for argument 'county_col']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 52, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 19, in main
+    data_loaded = data_transformation.transform_county_to_region(data_loaded, county_col="County")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataTransformation.transform_county_to_region() got multiple values for argument 'county_col'
+[2025-11-08 14:00:51,308: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:00:51,309: INFO: common: created directory at: artifacts]
+[2025-11-08 14:00:51,317: ERROR: stage_2_data_transformation: DataTransformation.transform_county_to_region() takes 1 positional argument but 2 were given]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 52, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 19, in main
+    data_loaded = data_transformation.transform_county_to_region(data_loaded)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataTransformation.transform_county_to_region() takes 1 positional argument but 2 were given
+[2025-11-08 14:08:54,333: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:08:54,335: INFO: common: created directory at: artifacts]
+[2025-11-08 14:08:54,352: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2025-11-08 14:10:22,080: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:10:22,082: INFO: common: created directory at: artifacts]
+[2025-11-08 14:10:22,096: ERROR: stage_2_data_transformation: DataTransformation.transform_county_to_region() takes 1 positional argument but 2 were given]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 53, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 20, in main
+    data_loaded = data_transformation.transform_county_to_region(data_loaded)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: DataTransformation.transform_county_to_region() takes 1 positional argument but 2 were given
+[2025-11-08 14:12:15,270: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:12:15,272: INFO: common: created directory at: artifacts]
+[2025-11-08 14:12:15,292: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2025-11-08 14:12:31,992: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:12:31,994: INFO: common: created directory at: artifacts]
+[2025-11-08 14:12:32,015: ERROR: stage_2_data_transformation: Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'Within']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 53, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 43, in main
+    data_imputed = data_transformation.impute_missing_values(data_loaded, numerical_features, categorical_features)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/data_transformation.py", line 73, in impute_missing_values
+    data[feature] = imputer.fit_transform(data[[feature]])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/base.py", line 894, in fit_transform
+    return self.fit(X, **fit_params).transform(X)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/base.py", line 1365, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/impute/_base.py", line 452, in fit
+    X = self._validate_input(X, in_fit=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/impute/_base.py", line 377, in _validate_input
+    raise new_ve from None
+ValueError: Cannot use mean strategy with non-numeric data:
+could not convert string to float: 'Within'
+[2025-11-08 14:13:56,069: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:13:56,071: INFO: common: created directory at: artifacts]
+[2025-11-08 14:13:56,098: ERROR: stage_2_data_transformation: 2]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 54, in <module>
+    obj.main()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_2_data_transformation.py", line 44, in main
+    data_imputed = data_transformation.impute_missing_values(data_loaded, numerical_features, categorical_features)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/data_transformation.py", line 77, in impute_missing_values
+    data[feature] = imputer.fit_transform(data[[feature]])
+    ~~~~^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/frame.py", line 4322, in __setitem__
+    self._set_item(key, value)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/frame.py", line 4535, in _set_item
+    value, refs = self._sanitize_column(value)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/frame.py", line 5289, in _sanitize_column
+    arr = sanitize_array(value, self.index, copy=True, allow_2d=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/construction.py", line 604, in sanitize_array
+    subarr = maybe_infer_to_datetimelike(data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/dtypes/cast.py", line 1192, in maybe_infer_to_datetimelike
+    raise ValueError(value.ndim)  # pragma: no cover
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: 2
+[2025-11-08 14:18:40,822: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-08 14:18:40,825: INFO: common: created directory at: artifacts]
+[2025-11-08 14:18:40,922: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
