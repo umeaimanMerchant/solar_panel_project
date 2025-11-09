@@ -1,0 +1,83 @@
+<!-- src/Classifier/app/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Solar Feasibility Prediction</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 30px; }
+    form { background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin: auto; }
+    label { display: block; margin-top: 10px; }
+    input, select { width: 100%; padding: 8px; margin-top: 4px; }
+    button { margin-top: 15px; padding: 10px; width: 100%; background: #007bff; color: white; border: none; border-radius: 5px; }
+    h2 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>Solar Feasibility Prediction</h2>
+  <form action="/predict" method="post">
+        <label for="Acres">Acres:</label>
+        <input type="number" step="0.01" name="Acres" id="Acres" required>
+
+        <label for="Distance_CAISO">Distance to Substation (Miles) CAISO:</label>
+        <input type="number" step="0.01" name="Distance_CAISO" id="Distance_CAISO" required>
+
+        <label for="Distance_GTET100">Distance to Substation (Miles) GTET 100 Max Voltage:</label>
+        <input type="number" step="0.01" name="Distance_GTET100" id="Distance_GTET100" required>
+
+        <label for="Distance_GTET200">Distance to Substation (Miles) GTET 200 Max Voltage:</label>
+        <input type="number" step="0.01" name="Distance_GTET200" id="Distance_GTET200" required>
+
+        <label for="Shape_Length">Shape__Length:</label>
+        <input type="number" step="0.01" name="Shape_Length" id="Shape_Length" required>
+
+        <label for="Shape_Area">Shape__Area:</label>
+        <input type="number" step="0.01" name="Shape_Area" id="Shape_Area" required>
+
+        <label for="Percentile_GTET100">Percentile (GTET 100 Max Voltage):</label>
+        <select name="Percentile_GTET100" id="Percentile_GTET100" required>
+            <option value="0 to 25th">0 to 25th</option>
+            <option value="25th to 50th">25th to 50th</option>
+            <option value="50th to 75th">50th to 75th</option>
+            <option value="75th to 100th">75th to 100th</option>
+        </select>
+
+        <label for="Percentile_GTET200">Percentile (GTET 200 Max Voltage):</label>
+        <select name="Percentile_GTET200" id="Percentile_GTET200" required>
+            <option value="0 to 25th">0 to 25th</option>
+            <option value="25th to 50th">25th to 50th</option>
+            <option value="50th to 75th">50th to 75th</option>
+            <option value="75th to 100th">75th to 100th</option>
+        </select>
+
+        <label for="Percentile_CASIO">Percentile (CAISO):</label>
+        <select name="Percentile_CASIO" id="Percentile_CASIO" required>
+            <option value="0 to 25th">0 to 25th</option>
+            <option value="25th to 50th">25th to 50th</option>
+            <option value="50th to 75th">50th to 75th</option>
+            <option value="75th to 100th">75th to 100th</option>
+        </select>
+
+        <label for="Install_Type">Install Type:</label>
+        <select name="Install_Type" id="Install_Type" required>
+            <option value="Rooftop">Rooftop</option>
+            <option value="Parking">Parking</option>
+        </select>
+
+        <label for="Urban_Rural">Urban or Rural:</label>
+        <select name="Urban_Rural" id="Urban_Rural" required>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+        </select>
+
+        <label for="County">County:</label>
+        <input type="text" name="County" id="County" placeholder="e.g., Del Norte County" required>
+
+        <button type="submit">Predict</button>
+  </form>
+
+  {% if prediction %}
+  <h3 style="text-align:center;">Predicted Result: {{ prediction }}</h3>
+  {% endif %}
+</body>
+</html>
+

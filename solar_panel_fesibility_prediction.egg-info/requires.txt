@@ -18,3 +18,5 @@ types-PyYAML
 scipy
 jupyter
 jupyterlab
+FastAPI
+uvicorn

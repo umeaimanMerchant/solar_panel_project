@@ -61,6 +61,9 @@ class ModelTrainer:
             reports[name] = classification_report(y_test, preds, output_dict=True)
             logger.info(f"{name} F1 Score: {f1:.4f}")
 
+        print("This is the training data")
+        print(X_train.columns)
+        # print(y_train.columns)
         # Pick best model
         best_model_name = max(f1_scores, key=f1_scores.get)
         best_model = self.models[best_model_name]

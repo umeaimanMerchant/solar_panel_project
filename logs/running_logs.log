@@ -810,3 +810,557 @@ FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/model/best_mo
 [2025-11-08 20:58:22,134: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage completed <<<<<<
 
 x==========x]
+[2025-11-09 08:13:10,897: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:13:10,900: INFO: common: created directory at: artifacts]
+[2025-11-09 08:13:10,944: ERROR: stage_4_model_prediction: 'County']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'County'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 47, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 20, in preprocess_input
+    df = self.data_transformation.transform_county_to_region(df)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/data_transformation.py", line 63, in transform_county_to_region
+    df["Region"] = df['County'].apply(categorize_county)
+                   ~~^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'County'
+[2025-11-09 08:13:25,079: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:13:25,081: INFO: common: created directory at: artifacts]
+[2025-11-09 08:13:25,116: ERROR: stage_4_model_prediction: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 407, in pandas_feature_info
+    new_feature_types.append(_pandas_dtype_mapper[dtype.name])
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'object'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 48, in predict
+    prediction = self.model.predict(df_preprocessed)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1839, in predict
+    class_probs = super().predict(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1443, in predict
+    predts = self.get_booster().inplace_predict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 2852, in inplace_predict
+    data, fns, _ = _transform_pandas_df(data, enable_categorical)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 662, in _transform_pandas_df
+    feature_names, feature_types = pandas_feature_info(
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 409, in pandas_feature_info
+    _invalid_dataframe_dtype(data)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 372, in _invalid_dataframe_dtype
+    raise ValueError(msg)
+ValueError: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object
+[2025-11-09 08:14:09,532: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:14:09,535: INFO: common: created directory at: artifacts]
+[2025-11-09 08:14:09,582: ERROR: stage_4_model_prediction: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 407, in pandas_feature_info
+    new_feature_types.append(_pandas_dtype_mapper[dtype.name])
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'object'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 48, in predict
+    prediction = self.model.predict(df_preprocessed)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1839, in predict
+    class_probs = super().predict(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1443, in predict
+    predts = self.get_booster().inplace_predict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 2852, in inplace_predict
+    data, fns, _ = _transform_pandas_df(data, enable_categorical)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 662, in _transform_pandas_df
+    feature_names, feature_types = pandas_feature_info(
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 409, in pandas_feature_info
+    _invalid_dataframe_dtype(data)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 372, in _invalid_dataframe_dtype
+    raise ValueError(msg)
+ValueError: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object
+[2025-11-09 08:14:56,364: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:14:56,368: INFO: common: created directory at: artifacts]
+[2025-11-09 08:14:56,416: ERROR: stage_4_model_prediction: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 407, in pandas_feature_info
+    new_feature_types.append(_pandas_dtype_mapper[dtype.name])
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'object'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 48, in predict
+    prediction = self.model.predict(df_preprocessed)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1839, in predict
+    class_probs = super().predict(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1443, in predict
+    predts = self.get_booster().inplace_predict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 2852, in inplace_predict
+    data, fns, _ = _transform_pandas_df(data, enable_categorical)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 662, in _transform_pandas_df
+    feature_names, feature_types = pandas_feature_info(
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 409, in pandas_feature_info
+    _invalid_dataframe_dtype(data)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 372, in _invalid_dataframe_dtype
+    raise ValueError(msg)
+ValueError: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object
+[2025-11-09 08:24:30,405: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-09 08:24:30,408: INFO: common: created directory at: artifacts]
+[2025-11-09 08:24:30,495: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2025-11-09 08:33:18,175: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-09 08:33:18,178: INFO: common: created directory at: artifacts]
+[2025-11-09 08:33:18,267: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2025-11-09 08:33:25,514: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:33:25,515: INFO: common: created directory at: artifacts]
+[2025-11-09 08:33:25,940: ERROR: stage_4_model_prediction: 'PredictionPipeline' object has no attribute 'data_transformation']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 67, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 41, in preprocess_input
+    df = self.data_transformation.transform_county_to_region(df)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'PredictionPipeline' object has no attribute 'data_transformation'
+[2025-11-09 08:33:57,027: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:33:57,030: INFO: common: created directory at: artifacts]
+[2025-11-09 08:33:57,061: ERROR: stage_4_model_prediction: 'NoneType' object has no attribute 'reset_index']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 69, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 63, in preprocess_input
+    df = self.scalarize_input(df, numerical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 22, in scalarize_input
+    input_data.drop(columns=numerical_features, inplace=True).reset_index(drop=True)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reset_index'
+[2025-11-09 08:35:15,856: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:35:15,859: INFO: common: created directory at: artifacts]
+[2025-11-09 08:35:15,892: ERROR: stage_4_model_prediction: 'NoneType' object has no attribute 'reset_index']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 69, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 63, in preprocess_input
+    df = self.scalarize_input(df, numerical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 22, in scalarize_input
+    input_data = input_data.drop(columns=numerical_features, inplace=True).reset_index(drop=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reset_index'
+[2025-11-09 08:36:26,558: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:36:26,560: INFO: common: created directory at: artifacts]
+[2025-11-09 08:36:26,595: ERROR: stage_4_model_prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Solar Technoeconomic Intersection
+]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 69, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 64, in preprocess_input
+    df = self.encode_categorical_features(df, categorical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 28, in encode_categorical_features
+    encoded_data = encoder.transform(input_data[categorical_features])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/preprocessing/_encoders.py", line 1043, in transform
+    X_int, X_mask = self._transform(
+                    ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/preprocessing/_encoders.py", line 201, in _transform
+    _check_feature_names(self, X, reset=False)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/validation.py", line 2787, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Solar Technoeconomic Intersection
+
+[2025-11-09 08:39:57,774: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-09 08:39:57,777: INFO: common: created directory at: artifacts]
+[2025-11-09 08:39:57,788: INFO: model_trainer: Training model: RandomForest]
+[2025-11-09 08:39:58,344: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-09 08:39:58,344: INFO: model_trainer: Training model: XGBoost]
+[2025-11-09 08:39:58,491: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-09 08:39:58,498: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-09 08:39:58,500: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-09 08:39:58,507: INFO: model_trainer: Training model: RandomForest]
+[2025-11-09 08:39:59,088: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-09 08:39:59,088: INFO: model_trainer: Training model: XGBoost]
+[2025-11-09 08:39:59,220: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-09 08:39:59,226: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-09 08:39:59,229: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-09 08:39:59,229: INFO: stage_3_model_training: Best Model: XGBoost | F1 Score: 0.9120769494851595]
+[2025-11-09 08:39:59,229: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage completed <<<<<<
+
+x==========x]
+[2025-11-09 08:40:43,982: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-09 08:40:43,984: INFO: common: created directory at: artifacts]
+[2025-11-09 08:40:43,990: INFO: model_trainer: Training model: RandomForest]
+[2025-11-09 08:40:44,530: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-09 08:40:44,530: INFO: model_trainer: Training model: XGBoost]
+[2025-11-09 08:40:44,676: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-09 08:40:44,677: ERROR: stage_3_model_training: 'Series' object has no attribute 'columns']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 66, in train_and_evaluate
+    print(y_train.columns)
+          ^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 6321, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+[2025-11-09 08:40:55,781: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-09 08:40:55,782: INFO: common: created directory at: artifacts]
+[2025-11-09 08:40:55,789: INFO: model_trainer: Training model: RandomForest]
+[2025-11-09 08:40:56,363: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-09 08:40:56,363: INFO: model_trainer: Training model: XGBoost]
+[2025-11-09 08:40:56,519: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-09 08:40:56,519: ERROR: stage_3_model_training: 'Series' object has no attribute 'columns']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 66, in train_and_evaluate
+    print(y_train.columns)
+          ^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/generic.py", line 6321, in __getattr__
+    return object.__getattribute__(self, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Series' object has no attribute 'columns'
+[2025-11-09 08:41:04,515: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-09 08:41:04,517: INFO: common: created directory at: artifacts]
+[2025-11-09 08:41:04,522: INFO: model_trainer: Training model: RandomForest]
+[2025-11-09 08:41:05,099: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-09 08:41:05,099: INFO: model_trainer: Training model: XGBoost]
+[2025-11-09 08:41:05,240: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-09 08:41:05,240: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-09 08:41:05,244: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-09 08:41:05,251: INFO: model_trainer: Training model: RandomForest]
+[2025-11-09 08:41:05,823: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-09 08:41:05,823: INFO: model_trainer: Training model: XGBoost]
+[2025-11-09 08:41:05,954: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-09 08:41:05,954: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-09 08:41:05,956: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-09 08:41:05,956: INFO: stage_3_model_training: Best Model: XGBoost | F1 Score: 0.9120769494851595]
+[2025-11-09 08:41:05,956: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage completed <<<<<<
+
+x==========x]
+[2025-11-09 08:53:48,667: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 08:53:48,670: INFO: common: created directory at: artifacts]
+[2025-11-09 08:53:48,708: ERROR: stage_4_model_prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Solar Technoeconomic Intersection
+]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 71, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 66, in preprocess_input
+    df = self.encode_categorical_features(df, categorical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 30, in encode_categorical_features
+    encoded_data = encoder.transform(input_data[categorical_features])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/preprocessing/_encoders.py", line 1043, in transform
+    X_int, X_mask = self._transform(
+                    ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/preprocessing/_encoders.py", line 201, in _transform
+    _check_feature_names(self, X, reset=False)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/validation.py", line 2787, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Solar Technoeconomic Intersection
+
+[2025-11-09 09:00:16,548: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:00:16,550: INFO: common: created directory at: artifacts]
+[2025-11-09 09:00:16,584: ERROR: stage_4_model_prediction: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Solar Technoeconomic Intersection
+]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 72, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 67, in preprocess_input
+    df = self.encode_categorical_features(df, categorical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 30, in encode_categorical_features
+    encoded_data = encoder.transform(input_data[categorical_features])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/_set_output.py", line 316, in wrapped
+    data_to_wrap = f(self, X, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/preprocessing/_encoders.py", line 1043, in transform
+    X_int, X_mask = self._transform(
+                    ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/preprocessing/_encoders.py", line 201, in _transform
+    _check_feature_names(self, X, reset=False)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/validation.py", line 2787, in _check_feature_names
+    raise ValueError(message)
+ValueError: The feature names should match those that were passed during fit.
+Feature names seen at fit time, yet now missing:
+- Solar Technoeconomic Intersection
+
+[2025-11-09 09:01:03,418: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:01:03,420: INFO: common: created directory at: artifacts]
+[2025-11-09 09:01:03,440: ERROR: stage_4_model_prediction: input_features is not equal to feature_names_in_]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 72, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 67, in preprocess_input
+    df = self.encode_categorical_features(df, categorical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 32, in encode_categorical_features
+    encoded_df = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out(categorical_features))
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/preprocessing/_encoders.py", line 1227, in get_feature_names_out
+    input_features = _check_feature_names_in(self, input_features)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/sklearn/utils/validation.py", line 2478, in _check_feature_names_in
+    raise ValueError("input_features is not equal to feature_names_in_")
+ValueError: input_features is not equal to feature_names_in_
+[2025-11-09 09:02:35,716: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:02:35,719: INFO: common: created directory at: artifacts]
+[2025-11-09 09:02:35,751: ERROR: stage_4_model_prediction: cannot concatenate object of type '<class 'numpy.ndarray'>'; only Series and DataFrame objs are valid]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 71, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 66, in preprocess_input
+    df = self.encode_categorical_features(df, categorical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 32, in encode_categorical_features
+    input_data = pd.concat([input_data, encoded_data], axis=1)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 382, in concat
+    op = _Concatenator(
+         ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 448, in __init__
+    ndims = self._get_ndims(objs)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/pandas/core/reshape/concat.py", line 489, in _get_ndims
+    raise TypeError(msg)
+TypeError: cannot concatenate object of type '<class 'numpy.ndarray'>'; only Series and DataFrame objs are valid
+[2025-11-09 09:04:05,130: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:04:05,132: INFO: common: created directory at: artifacts]
+[2025-11-09 09:04:05,155: ERROR: stage_4_model_prediction: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object, Solar Technoeconomic Intersection: object]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 407, in pandas_feature_info
+    new_feature_types.append(_pandas_dtype_mapper[dtype.name])
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'object'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 73, in predict
+    prediction = self.model.predict(df_preprocessed)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1839, in predict
+    class_probs = super().predict(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1443, in predict
+    predts = self.get_booster().inplace_predict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 2852, in inplace_predict
+    data, fns, _ = _transform_pandas_df(data, enable_categorical)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 662, in _transform_pandas_df
+    feature_names, feature_types = pandas_feature_info(
+                                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 409, in pandas_feature_info
+    _invalid_dataframe_dtype(data)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/data.py", line 372, in _invalid_dataframe_dtype
+    raise ValueError(msg)
+ValueError: DataFrame.dtypes for data must be int, float, bool or category. When categorical type is supplied, the experimental DMatrix parameter`enable_categorical` must be set to `True`.  Invalid columns:County: object, Solar Technoeconomic Intersection: object
+[2025-11-09 09:06:33,062: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:06:33,065: INFO: common: created directory at: artifacts]
+[2025-11-09 09:06:33,114: INFO: stage_4_model_prediction: Prediction Output: 0]
+[2025-11-09 09:06:33,114: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage completed <<<<<<
+
+x==========x]
+[2025-11-09 09:09:53,235: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:09:53,237: INFO: common: created directory at: artifacts]
+[2025-11-09 09:09:53,279: INFO: stage_4_model_prediction: Prediction Output: 0]
+[2025-11-09 09:09:53,279: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage completed <<<<<<
+
+x==========x]
+[2025-11-09 09:11:11,466: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:11:11,469: INFO: common: created directory at: artifacts]
+[2025-11-09 09:11:11,505: INFO: stage_4_model_prediction: Prediction Output: 0]
+[2025-11-09 09:11:11,505: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage completed <<<<<<
+
+x==========x]
+[2025-11-09 09:14:49,583: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:14:49,587: INFO: common: created directory at: artifacts]
+[2025-11-09 09:14:49,626: INFO: stage_4_model_prediction: Prediction Output: 0]
+[2025-11-09 09:14:49,627: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage completed <<<<<<
+
+x==========x]
+[2025-11-09 09:15:38,251: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:15:38,252: INFO: common: created directory at: artifacts]
+[2025-11-09 09:15:38,277: ERROR: stage_4_model_prediction: feature_names mismatch: ['Acres', 'Distance to Substation (Miles) CAISO', 'Distance to Substation (Miles) GTET 100 Max Voltage', 'Distance to Substation (Miles) GTET 200 Max Voltage', 'Shape__Length', 'Shape__Area', 'Percentile (GTET 100 Max Voltage)_25th to 50th', 'Percentile (GTET 100 Max Voltage)_50th to 75th', 'Percentile (GTET 100 Max Voltage)_75th to 100th', 'Percentile (GTET 200 Max Voltage)_25th to 50th', 'Percentile (GTET 200 Max Voltage)_50th to 75th', 'Percentile (GTET 200 Max Voltage)_75th to 100th', 'Percentile (CAISO)_25th to 50th', 'Percentile (CAISO)_50th to 75th', 'Percentile (CAISO)_75th to 100th', 'Install Type_Parking', 'Install Type_Rooftop', 'Urban or Rural_Urban', 'Region_Central California', 'Region_Inland Deserts', 'Region_North Central California', 'Region_Northern California', 'Region_South Coast'] ['Distance to Substation (Miles) GTET 100 Max Voltage', 'Distance to Substation (Miles) GTET 200 Max Voltage', 'Distance to Substation (Miles) CAISO', 'Shape__Length', 'Acres', 'Shape__Area', 'Percentile (GTET 100 Max Voltage)_25th to 50th', 'Percentile (GTET 100 Max Voltage)_50th to 75th', 'Percentile (GTET 100 Max Voltage)_75th to 100th', 'Percentile (GTET 200 Max Voltage)_25th to 50th', 'Percentile (GTET 200 Max Voltage)_50th to 75th', 'Percentile (GTET 200 Max Voltage)_75th to 100th', 'Percentile (CAISO)_25th to 50th', 'Percentile (CAISO)_50th to 75th', 'Percentile (CAISO)_75th to 100th', 'Install Type_Parking', 'Install Type_Rooftop', 'Urban or Rural_Urban', 'Region_Central California', 'Region_Inland Deserts', 'Region_North Central California', 'Region_Northern California', 'Region_South Coast']]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 79, in predict
+    prediction = self.model.predict(df_preprocessed)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1839, in predict
+    class_probs = super().predict(
+                  ^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/sklearn.py", line 1443, in predict
+    predts = self.get_booster().inplace_predict(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 774, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 2854, in inplace_predict
+    self._validate_features(fns)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/xgboost/core.py", line 3431, in _validate_features
+    raise ValueError(msg.format(self.feature_names, feature_names))
+ValueError: feature_names mismatch: ['Acres', 'Distance to Substation (Miles) CAISO', 'Distance to Substation (Miles) GTET 100 Max Voltage', 'Distance to Substation (Miles) GTET 200 Max Voltage', 'Shape__Length', 'Shape__Area', 'Percentile (GTET 100 Max Voltage)_25th to 50th', 'Percentile (GTET 100 Max Voltage)_50th to 75th', 'Percentile (GTET 100 Max Voltage)_75th to 100th', 'Percentile (GTET 200 Max Voltage)_25th to 50th', 'Percentile (GTET 200 Max Voltage)_50th to 75th', 'Percentile (GTET 200 Max Voltage)_75th to 100th', 'Percentile (CAISO)_25th to 50th', 'Percentile (CAISO)_50th to 75th', 'Percentile (CAISO)_75th to 100th', 'Install Type_Parking', 'Install Type_Rooftop', 'Urban or Rural_Urban', 'Region_Central California', 'Region_Inland Deserts', 'Region_North Central California', 'Region_Northern California', 'Region_South Coast'] ['Distance to Substation (Miles) GTET 100 Max Voltage', 'Distance to Substation (Miles) GTET 200 Max Voltage', 'Distance to Substation (Miles) CAISO', 'Shape__Length', 'Acres', 'Shape__Area', 'Percentile (GTET 100 Max Voltage)_25th to 50th', 'Percentile (GTET 100 Max Voltage)_50th to 75th', 'Percentile (GTET 100 Max Voltage)_75th to 100th', 'Percentile (GTET 200 Max Voltage)_25th to 50th', 'Percentile (GTET 200 Max Voltage)_50th to 75th', 'Percentile (GTET 200 Max Voltage)_75th to 100th', 'Percentile (CAISO)_25th to 50th', 'Percentile (CAISO)_50th to 75th', 'Percentile (CAISO)_75th to 100th', 'Install Type_Parking', 'Install Type_Rooftop', 'Urban or Rural_Urban', 'Region_Central California', 'Region_Inland Deserts', 'Region_North Central California', 'Region_Northern California', 'Region_South Coast']
+[2025-11-09 09:23:23,931: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-09 09:23:23,934: INFO: common: created directory at: artifacts]
+[2025-11-09 09:23:23,975: INFO: stage_4_model_prediction: Prediction Output: 0]
+[2025-11-09 09:23:23,975: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage completed <<<<<<
+
+x==========x]
+[2025-11-09 09:33:18,268: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-11-09 09:34:32,451: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-11-09 09:40:38,169: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-11-09 09:41:17,081: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-11-09 09:42:16,776: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-11-09 09:43:58,508: ERROR: utils: Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+]

@@ -7,7 +7,7 @@ configBox is used to handle configuration data as class attributes. dictionary a
 """
 
 import os
-from box.exceptions import BoxValueError
+# from box.exceptions import BoxValueError
 import yaml
 from src.Classifier import logger
 import json
@@ -40,8 +40,8 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
             content = yaml.safe_load(yaml_file)
             print(f"Keys in YAML: {list(content.keys())}")     # And this
             return ConfigBox(content)
-    except BoxValueError:
-        raise ValueError("yaml file is empty")
+    # except BoxValueError:
+    #     raise ValueError("yaml file is empty")
     except Exception as e:
         raise e
     

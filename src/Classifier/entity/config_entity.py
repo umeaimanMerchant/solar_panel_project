@@ -16,6 +16,8 @@ class DataTransformationConfig:
     root_dir: Path
     transformed_data_file: Path
     source_data_file: Path
+    encoder_path: Path
+    scaler_path: Path
     selected_columns: list 
 
 @dataclass(frozen=True)
@@ -25,3 +27,9 @@ class ModelTrainerConfig:
     target_column: str
     test_size: float
     random_state: int
+
+@dataclass(frozen=True)
+class ModelPredictionConfig:
+    model_path: Path
+    encoder_path: Path
+    scaler_path: Path

@@ -1,7 +1,7 @@
 from src.Classifier.constants import *
 import os
 from src.Classifier.utils.common import read_yaml, create_directories
-from src.Classifier.entity.config_entity import DataIngestionConfig, DataTransformationConfig, ModelTrainerConfig
+from src.Classifier.entity.config_entity import DataIngestionConfig, DataTransformationConfig, ModelTrainerConfig, ModelPredictionConfig
 
 
 class ConfigurationManager:
@@ -37,6 +37,8 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             transformed_data_file=config.transformed_data_file,
             source_data_file=config.source_data_file,
+            encoder_path=config.encoder_path,
+            scaler_path=config.scaler_path,
             selected_columns=config.selected_columns
         )
         return data_transformation_config
@@ -51,3 +53,13 @@ class ConfigurationManager:
             random_state=config.random_state
         )
         return model_trainer_config
+    
+    def get_model_prediction_config(self)->ModelPredictionConfig:
+        config = self.config.model_prediction
+        model_prediction_config = ModelPredictionConfig(
+            model_path=config.model_path,
+            encoder_path=config.encoder_path,
+            scaler_path=config.scaler_path
+        )
+        return model_prediction_config
+        

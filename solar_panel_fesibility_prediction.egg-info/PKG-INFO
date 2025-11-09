@@ -25,6 +25,8 @@ Requires-Dist: types-PyYAML
 Requires-Dist: scipy
 Requires-Dist: jupyter
 Requires-Dist: jupyterlab
+Requires-Dist: FastAPI
+Requires-Dist: uvicorn
 Dynamic: author
 Dynamic: author-email
 Dynamic: description
@@ -108,3 +110,9 @@ Modular Data Ingestion Steps (Simplified)
 
    * Orchestrate all steps:
      Constant with Ymal file- Config Manager → Entity → Ingestion → Output to next stage.
+
+
+
+-----
+for the future i want you to make sure that data transformation happens seperately for training and testing
+

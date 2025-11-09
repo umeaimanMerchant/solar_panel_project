@@ -14,6 +14,8 @@ data_transformation:
   root_dir: artifacts/data
   transformed_data_file: artifacts/data/transformed_data.csv
   source_data_file: artifacts/data/Solar_Footprints.csv
+  encoder_path: artifacts/data/encoder.pkl
+  scaler_path: artifacts/data/scaler.pkl
   selected_columns:
     [
       'Acres',
@@ -38,3 +40,10 @@ model_trainer:
   target_column: 'Solar Technoeconomic Intersection_Within'
   test_size: 0.2
   random_state: 42
+
+
+## Model Prediction Configurations
+model_prediction:
+  model_path: artifacts/models/best_model.pkl
+  encoder_path: artifacts/data/encoder.pkl
+  scaler_path: artifacts/data/scaler.pkl

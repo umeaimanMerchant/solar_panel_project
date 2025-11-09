@@ -3,6 +3,7 @@ This file is used for data transformation components
 """
 import numpy as np
 import pandas as pd
+import pickle
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from src.Classifier.entity.config_entity import DataTransformationConfig
@@ -94,6 +95,7 @@ class DataTransformation:
         """
         scaler = StandardScaler()
         data[numerical_features] = scaler.fit_transform(data[numerical_features])
+        pickle.dump(scaler, open(self.config.scaler_path, 'wb'))
         return data
     
     def encode_categorical_features(self, data: pd.DataFrame, categorical_features: list) -> pd.DataFrame:
@@ -105,6 +107,7 @@ class DataTransformation:
         encoded_df = pd.DataFrame(encoded_data, columns=encoder.get_feature_names_out(categorical_features))
         data = data.drop(columns=categorical_features).reset_index(drop=True)
         data = pd.concat([data, encoded_df], axis=1)
+        pickle.dump(encoder, open(self.config.encoder_path, 'wb'))
         return data
     
     def store_scaled_data(self, data: pd.DataFrame):
