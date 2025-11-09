@@ -457,3 +457,356 @@ ValueError: 2
 [2025-11-08 14:18:40,922: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
 
 x==========x]
+[2025-11-08 16:49:32,466: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 16:49:32,467: ERROR: stage_3_model_training: while scanning a simple key
+  in "config/config.yaml", line 42, column 3
+could not find expected ':'
+  in "config/config.yaml", line 43, column 3]
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 16, in <module>
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/config/configuration.py", line 13, in __init__
+    self.config = read_yaml(config_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/ensure/main.py", line 872, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/utils/common.py", line 46, in read_yaml
+    raise e
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/utils/common.py", line 40, in read_yaml
+    content = yaml.safe_load(yaml_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/__init__.py", line 125, in safe_load
+    return load(stream, SafeLoader)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/__init__.py", line 81, in load
+    return loader.get_single_data()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/composer.py", line 64, in compose_node
+    if self.check_event(AliasEvent):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+                         ^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/parser.py", line 449, in parse_block_mapping_value
+    if not self.check_token(KeyToken, ValueToken, BlockEndToken):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/scanner.py", line 116, in check_token
+    self.fetch_more_tokens()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/scanner.py", line 162, in fetch_more_tokens
+    self.stale_possible_simple_keys()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/yaml/scanner.py", line 291, in stale_possible_simple_keys
+    raise ScannerError("while scanning a simple key", key.mark,
+yaml.scanner.ScannerError: while scanning a simple key
+  in "config/config.yaml", line 42, column 3
+could not find expected ':'
+  in "config/config.yaml", line 43, column 3
+[2025-11-08 16:53:22,795: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 16:53:22,799: INFO: common: created directory at: artifacts]
+[2025-11-08 16:53:22,799: ERROR: stage_3_model_training: "'ConfigBox' object has no attribute 'transformed_data_file'"]
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'transformed_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'transformed_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'transformed_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 17, in <module>
+    model_trainer_config = config.get_model_trainer_config()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/config/configuration.py", line 49, in get_model_trainer_config
+    transformed_data_file=config.transformed_data_file,
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'transformed_data_file'"
+[2025-11-08 17:52:19,538: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 17:52:19,542: INFO: common: created directory at: artifacts]
+[2025-11-08 17:52:19,542: ERROR: stage_3_model_training: "'ConfigBox' object has no attribute 'transformed_data_file'"]
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'transformed_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/config_box.py", line 29, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'transformed_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 594, in box.box.Box.__getitem__
+KeyError: 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "box/box.py", line 633, in box.box.Box.__getattr__
+  File "box/box.py", line 621, in box.box.Box.__getitem__
+box.exceptions.BoxKeyError: "'transformed_data_file'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "box/box.py", line 635, in box.box.Box.__getattr__
+AttributeError: 'ConfigBox' object has no attribute 'transformed_data_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 17, in <module>
+    model_trainer_config = config.get_model_trainer_config()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/config/configuration.py", line 49, in get_model_trainer_config
+    transformed_data_file=config.transformed_data_file,
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "box/config_box.py", line 31, in box.config_box.ConfigBox.__getattr__
+  File "box/box.py", line 649, in box.box.Box.__getattr__
+box.exceptions.BoxKeyError: "'ConfigBox' object has no attribute 'transformed_data_file'"
+[2025-11-08 17:56:55,313: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 17:56:55,317: INFO: common: created directory at: artifacts]
+[2025-11-08 17:56:55,325: ERROR: stage_3_model_training: 'ModelTrainer' object has no attribute 'models']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    best_model, score, reports = trainer.train_and_evaluate()
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 32, in train_and_evaluate
+    for name, model in self.models.items():
+                       ^^^^^^^^^^^
+AttributeError: 'ModelTrainer' object has no attribute 'models'
+[2025-11-08 19:42:28,616: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 19:42:28,620: INFO: common: created directory at: artifacts]
+[2025-11-08 19:56:22,077: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 19:56:22,080: INFO: common: created directory at: artifacts]
+[2025-11-08 19:56:32,873: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 19:56:32,875: INFO: common: created directory at: artifacts]
+[2025-11-08 19:56:32,883: ERROR: stage_3_model_training: 'ModelTrainer' object has no attribute 'models']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 47, in train_and_evaluate
+    for name, model in self.models.items():
+                       ^^^^^^^^^^^
+AttributeError: 'ModelTrainer' object has no attribute 'models'
+[2025-11-08 20:18:33,064: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:18:33,068: INFO: common: created directory at: artifacts]
+[2025-11-08 20:18:33,080: ERROR: stage_3_model_training: 'ModelTrainer' object has no attribute 'models']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 47, in train_and_evaluate
+    for name, model in self.models.items():
+                       ^^^^^^^^^^^
+AttributeError: 'ModelTrainer' object has no attribute 'models'
+[2025-11-08 20:21:52,487: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:21:52,491: INFO: common: created directory at: artifacts]
+[2025-11-08 20:21:52,500: ERROR: stage_3_model_training: 'ModelTrainer' object has no attribute 'models']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 47, in train_and_evaluate
+    for name, model in self.models.items():
+                       ^^^^^^^^^^^
+AttributeError: 'ModelTrainer' object has no attribute 'models'
+[2025-11-08 20:22:06,113: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:22:06,115: INFO: common: created directory at: artifacts]
+[2025-11-08 20:23:06,083: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:23:06,086: INFO: common: created directory at: artifacts]
+[2025-11-08 20:25:22,209: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:25:22,213: INFO: common: created directory at: artifacts]
+[2025-11-08 20:25:22,222: ERROR: stage_3_model_training: 'ModelTrainer' object has no attribute 'models']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 46, in train_and_evaluate
+    for name, model in self.models.items():
+                       ^^^^^^^^^^^
+AttributeError: 'ModelTrainer' object has no attribute 'models'
+[2025-11-08 20:44:39,727: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:44:39,730: INFO: common: created directory at: artifacts]
+[2025-11-08 20:44:39,740: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:44:39,740: ERROR: stage_3_model_training: 'dict' object has no attribute 'fit']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 45, in train_and_evaluate
+    model.fit(X_train, y_train)
+    ^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'fit'
+[2025-11-08 20:46:45,466: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:46:45,469: INFO: common: created directory at: artifacts]
+[2025-11-08 20:46:45,477: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:46:46,013: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:46:46,014: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:46:46,158: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:47:05,354: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:47:05,355: INFO: common: created directory at: artifacts]
+[2025-11-08 20:47:05,360: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:47:05,897: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:47:05,897: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:47:06,033: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:47:06,033: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-08 20:47:06,033: ERROR: stage_3_model_training: 'ModelTrainerConfig' object has no attribute 'root_dir']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 72, in train_and_evaluate
+    model_dir = Path(self.config.root_dir) / "models"
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ModelTrainerConfig' object has no attribute 'root_dir'
+[2025-11-08 20:54:15,195: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:54:15,198: INFO: common: created directory at: artifacts]
+[2025-11-08 20:54:15,205: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:54:15,744: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:54:15,744: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:54:15,898: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:54:15,898: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-08 20:54:15,898: ERROR: stage_3_model_training: 'ModelTrainerConfig' object has no attribute 'model_save_path']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 75, in train_and_evaluate
+    joblib.dump(best_model, self.config.model_save_path)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ModelTrainerConfig' object has no attribute 'model_save_path'
+[2025-11-08 20:55:04,893: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:55:04,895: INFO: common: created directory at: artifacts]
+[2025-11-08 20:55:04,913: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:55:05,457: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:55:05,457: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:55:05,601: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:55:05,601: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-08 20:55:05,601: ERROR: stage_3_model_training: [Errno 2] No such file or directory: 'artifacts/model_trainer/best_model.pkl']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 75, in train_and_evaluate
+    joblib.dump(best_model, self.config.best_model_path)
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/venv/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 599, in dump
+    with open(filename, "wb") as f:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/model_trainer/best_model.pkl'
+[2025-11-08 20:55:58,703: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:55:58,705: INFO: common: created directory at: artifacts]
+[2025-11-08 20:55:58,713: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:55:59,254: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:55:59,254: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:55:59,390: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:55:59,390: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-08 20:55:59,390: ERROR: stage_3_model_training: [Errno 2] No such file or directory: 'artifacts/model_trainer/best_model.pkl']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 74, in train_and_evaluate
+    pickle.dump(best_model, open(self.config.best_model_path, 'wb'))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/model_trainer/best_model.pkl'
+[2025-11-08 20:57:37,649: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:57:37,650: INFO: common: created directory at: artifacts]
+[2025-11-08 20:57:37,654: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:57:38,188: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:57:38,188: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:57:38,322: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:57:38,322: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-08 20:57:38,323: ERROR: stage_3_model_training: [Errno 2] No such file or directory: 'artifacts/model/best_model.pkl']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_3_model_training.py", line 20, in <module>
+    trainer.train_and_evaluate()
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_trainer.py", line 74, in train_and_evaluate
+    pickle.dump(best_model, open(self.config.best_model_path, 'wb'))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/model/best_model.pkl'
+[2025-11-08 20:58:20,708: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-08 20:58:20,709: INFO: common: created directory at: artifacts]
+[2025-11-08 20:58:20,714: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:58:21,275: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:58:21,275: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:58:21,412: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:58:21,412: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-08 20:58:21,415: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-08 20:58:21,420: INFO: model_trainer: Training model: RandomForest]
+[2025-11-08 20:58:21,984: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-08 20:58:21,984: INFO: model_trainer: Training model: XGBoost]
+[2025-11-08 20:58:22,131: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-08 20:58:22,131: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-08 20:58:22,133: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-08 20:58:22,133: INFO: stage_3_model_training: Best Model: XGBoost | F1 Score: 0.9120769494851595]
+[2025-11-08 20:58:22,134: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage completed <<<<<<
+
+x==========x]

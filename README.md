@@ -74,3 +74,9 @@ Modular Data Ingestion Steps (Simplified)
 
    * Orchestrate all steps:
      Constant with Ymal file- Config Manager → Entity → Ingestion → Output to next stage.
+
+
+
+-----
+for the future i want you to make sure that data transformation happens seperately for training and testing
+

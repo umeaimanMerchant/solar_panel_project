@@ -1,7 +1,7 @@
 from src.Classifier.constants import *
 import os
 from src.Classifier.utils.common import read_yaml, create_directories
-from src.Classifier.entity.config_entity import DataIngestionConfig, DataTransformationConfig
+from src.Classifier.entity.config_entity import DataIngestionConfig, DataTransformationConfig, ModelTrainerConfig
 
 
 class ConfigurationManager:
@@ -14,7 +14,6 @@ class ConfigurationManager:
         self.params = read_yaml(params_filepath)
 
         create_directories([self.config.artifacts_root])
-
 
     
     def get_data_ingestion_config(self) -> DataIngestionConfig:
@@ -42,3 +41,13 @@ class ConfigurationManager:
         )
         return data_transformation_config
     
+    def get_model_trainer_config(self)-> ModelTrainerConfig:
+        config = self.config.model_trainer
+        model_trainer_config = ModelTrainerConfig(
+            best_model_path=config.best_model_path,
+            data_file_path=config.data_file_path,
+            target_column=config.target_column,
+            test_size=config.test_size,
+            random_state=config.random_state
+        )
+        return model_trainer_config

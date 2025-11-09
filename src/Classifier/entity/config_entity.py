@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 from pathlib import Path
-
+from typing import Dict, Any
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
@@ -17,3 +17,11 @@ class DataTransformationConfig:
     transformed_data_file: Path
     source_data_file: Path
     selected_columns: list 
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    best_model_path: Path
+    data_file_path: Path
+    target_column: str
+    test_size: float
+    random_state: int

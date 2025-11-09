@@ -31,4 +31,10 @@ data_transformation:
       'Solar Technoeconomic Intersection'
     ]
 
-  ## Model Trainer Configurations
+## Model Trainer Configurations
+model_trainer:
+  best_model_path: artifacts/models/best_model.pkl
+  data_file_path: artifacts/data/transformed_data.csv
+  target_column: 'Solar Technoeconomic Intersection_Within'
+  test_size: 0.2
+  random_state: 42
