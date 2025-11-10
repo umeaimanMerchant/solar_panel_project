@@ -1364,3 +1364,7 @@ You can install "python-multipart" with:
 
 pip install python-multipart
 ]
+[2025-11-10 08:29:30,868: INFO: common: created directory at: artifacts]
+[2025-11-10 08:35:04,168: INFO: common: created directory at: artifacts]
+[2025-11-10 08:55:54,826: INFO: common: created directory at: artifacts]
+[2025-11-10 08:57:25,487: INFO: common: created directory at: artifacts]
