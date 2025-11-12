@@ -2,3 +2,21 @@ venv/*
 
 artifacts/*
 
+.dvc
+
+__pycache__/
+
+.ipynb_checkpoints
+
+# Ignore environment variables file
+.env
+
+# Ignore IDE specific files
+.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+logs/
+*.log
+

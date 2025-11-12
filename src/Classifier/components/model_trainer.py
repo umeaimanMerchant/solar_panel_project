@@ -13,7 +13,7 @@ from pathlib import Path
 from src.Classifier.utils.common import load_data
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from xgboost import XGBClassifier
-from catboost import CatBoostClassifier
+
 
 class ModelTrainer:
     def __init__(self,config: ModelTrainerConfig):

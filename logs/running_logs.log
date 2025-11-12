@@ -1368,3 +1368,8 @@ pip install python-multipart
 [2025-11-10 08:35:04,168: INFO: common: created directory at: artifacts]
 [2025-11-10 08:55:54,826: INFO: common: created directory at: artifacts]
 [2025-11-10 08:57:25,487: INFO: common: created directory at: artifacts]
+[2025-11-10 20:54:57,956: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-10 20:54:57,959: INFO: common: created directory at: artifacts]
+[2025-11-10 20:54:58,057: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
