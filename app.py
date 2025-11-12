@@ -1,3 +1,7 @@
+"""
+This is app code which is backend for model- it uses model to give out prediction, it is backbone of the system
+"""
+
 # src/Classifier/app/main.py
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
