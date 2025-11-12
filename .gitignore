@@ -2,7 +2,6 @@ venv/*
 
 artifacts/*
 
-.dvc
 
 __pycache__/
 

@@ -80,3 +80,4 @@ Modular Data Ingestion Steps (Simplified)
 -----
 for the future i want you to make sure that data transformation happens seperately for training and testing
 
+python -m src.Classifier.pipeline.stage_4_model_prediction

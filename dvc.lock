@@ -1,0 +1,53 @@
+schema: '2.0'
+stages:
+  data_transformation:
+    cmd: python -m src.Classifier.pipeline.stage_2_data_transformation
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: adef670183c2dceed54b9fbd530d9cb7
+      size: 1527
+    - path: src/Classifier/pipeline/stage_2_data_transformation.py
+      hash: md5
+      md5: f46f98b9427bc6dfb1dac9ca2a173a13
+      size: 2446
+    outs:
+    - path: artifacts/data/encoder.pkl
+      hash: md5
+      md5: 0834a2cde0e3a42466414d04a52bdedc
+      size: 1347
+    - path: artifacts/data/scaler.pkl
+      hash: md5
+      md5: 8a68a49c4bc32d9e99b1077084856015
+      size: 866
+    - path: artifacts/data/transformed_data.csv
+      hash: md5
+      md5: f95d40149da6f766b218c81c6e466f3b
+      size: 1027560
+  training_base_model:
+    cmd: python -m src.Classifier.pipeline.stage_3_model_training
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: adef670183c2dceed54b9fbd530d9cb7
+      size: 1527
+    - path: src/Classifier/pipeline/stage_3_model_training.py
+      hash: md5
+      md5: e3b734c22728eed3754343ba3046b6e6
+      size: 893
+    outs:
+    - path: artifacts/models/best_model.pkl
+      hash: md5
+      md5: 90b051152bbbf39403481eff0fa19c10
+      size: 839287
+  prediction:
+    cmd: python -m src.Classifier.pipeline.stage_4_model_prediction
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: adef670183c2dceed54b9fbd530d9cb7
+      size: 1527
+    - path: src/Classifier/pipeline/stage_4_model_prediction.py
+      hash: md5
+      md5: 102cd245eb2352e6a20f4b218e204fdb
+      size: 1404

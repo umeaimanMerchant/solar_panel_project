@@ -11,7 +11,7 @@ stages:
   #     - artifacts/data/Solar_Footprints.csv
 
   data_transformation:
-    cmd: python -m src/Classifier/pipeline/stage_2_data_transformation
+    cmd: python -m src.Classifier.pipeline.stage_2_data_transformation
     deps:
       - src/Classifier/pipeline/stage_2_data_transformation.py
       - config/config.yaml
@@ -21,18 +21,18 @@ stages:
       - artifacts/data/scaler.pkl
 
   training_base_model:
-    cmd: python -m src/Classifier/pipeline/stage_3_model_training
+    cmd: python -m src.Classifier.pipeline.stage_3_model_training
     deps:
-      - src/cnnClassifier/pipeline/stage_3_model_training.py
+      - src/Classifier/pipeline/stage_3_model_training.py
       - config/config.yaml
     outs:
       - artifacts/models/best_model.pkl
 
 
   prediction:
-      cmd: python -m src/Classifier/pipeline/stage_4_model_prediction
+      cmd: python -m src.Classifier.pipeline.stage_4_model_prediction
       deps:
-        - src/cnnClassifier/pipeline/stage_4_model_prediction.py
+        - src/Classifier/pipeline/stage_4_model_prediction.py
         - config/config.yaml
       # outs:
       #   - artifacts/models/

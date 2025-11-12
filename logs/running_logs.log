@@ -1373,3 +1373,66 @@ pip install python-multipart
 [2025-11-10 20:54:58,057: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
 
 x==========x]
+[2025-11-11 20:27:57,130: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-11 20:27:57,132: INFO: common: created directory at: artifacts]
+[2025-11-11 20:27:57,248: ERROR: stage_4_model_prediction: [Errno 2] No such file or directory: 'artifacts/data/scaler.pkl']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 111, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 93, in preprocess_input
+    df = self.scalarize_input(df, numerical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 46, in scalarize_input
+    scaler = pickle.load(open(self.model_config.scaler_path, 'rb'))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data/scaler.pkl'
+[2025-11-11 20:28:50,195: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-11 20:28:50,196: INFO: common: created directory at: artifacts]
+[2025-11-11 20:28:50,212: ERROR: stage_4_model_prediction: [Errno 2] No such file or directory: 'artifacts/data/scaler.pkl']
+Traceback (most recent call last):
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/pipeline/stage_4_model_prediction.py", line 32, in <module>
+    prediction = pipeline.predict(input_sample)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 111, in predict
+    df_preprocessed = self.preprocess_input(input_data)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 93, in preprocess_input
+    df = self.scalarize_input(df, numerical_features)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/umeaimanmerchant/Documents/ml_pipeline/src/Classifier/components/model_prediction.py", line 46, in scalarize_input
+    scaler = pickle.load(open(self.model_config.scaler_path, 'rb'))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data/scaler.pkl'
+[2025-11-11 20:29:56,839: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage started <<<<<<]
+[2025-11-11 20:29:56,842: INFO: common: created directory at: artifacts]
+[2025-11-11 20:29:56,941: INFO: stage_2_data_transformation: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2025-11-11 20:30:28,779: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage started <<<<<<]
+[2025-11-11 20:30:28,781: INFO: common: created directory at: artifacts]
+[2025-11-11 20:30:28,788: INFO: model_trainer: Training model: RandomForest]
+[2025-11-11 20:30:29,322: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-11 20:30:29,322: INFO: model_trainer: Training model: XGBoost]
+[2025-11-11 20:30:29,457: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-11 20:30:29,457: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-11 20:30:29,460: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-11 20:30:29,466: INFO: model_trainer: Training model: RandomForest]
+[2025-11-11 20:30:30,029: INFO: model_trainer: RandomForest F1 Score: 0.9080]
+[2025-11-11 20:30:30,029: INFO: model_trainer: Training model: XGBoost]
+[2025-11-11 20:30:30,176: INFO: model_trainer: XGBoost F1 Score: 0.9121]
+[2025-11-11 20:30:30,177: INFO: model_trainer: Best model: XGBoost | F1 Score: 0.9121]
+[2025-11-11 20:30:30,178: INFO: model_trainer: Saved best model at: artifacts/models/best_model.pkl]
+[2025-11-11 20:30:30,178: INFO: stage_3_model_training: Best Model: XGBoost | F1 Score: 0.9120769494851595]
+[2025-11-11 20:30:30,178: INFO: stage_3_model_training: >>>>>> Stage Model Training Stage completed <<<<<<
+
+x==========x]
+[2025-11-11 20:30:30,964: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage started <<<<<<]
+[2025-11-11 20:30:30,965: INFO: common: created directory at: artifacts]
+[2025-11-11 20:30:30,984: INFO: stage_4_model_prediction: Prediction Output: 0]
+[2025-11-11 20:30:30,984: INFO: stage_4_model_prediction: >>>>>> stage Prediction Stage completed <<<<<<
+
+x==========x]
