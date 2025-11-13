@@ -136,29 +136,6 @@ The data flows through:
 7. **Pipeline Execution**
    Orchestrates end-to-end flow for modularity and maintainability.
 
----
-
-## 📊 MLflow Integration
-
-Track your experiments with MLflow.
-
-```bash
-mlflow ui
-```
-
-### Example DagsHub Integration
-
-```bash
-export MLFLOW_TRACKING_URI=https://dagshub.com/<your-username>/Solar-Feasibility-MLflow-DVC.mlflow
-export MLFLOW_TRACKING_USERNAME=<your-username>
-export MLFLOW_TRACKING_PASSWORD=<your-password>
-```
-
-Run:
-
-```bash
-python script.py
-```
 
 ---
 
