@@ -192,7 +192,18 @@ dvc dag
 | `ECR_REPOSITORY_NAME`   | Repository name |
 
 ---
+## Screenshot of Output
 
+
+<img width="1447" height="701" alt="Screenshot 2025-11-11 at 8 44 48 PM" src="https://github.com/user-attachments/assets/72dd7f64-774d-4ef9-8e96-d659058f17e8" />
+
+<img width="1410" height="748" alt="Screenshot 2025-11-11 at 8 31 24 PM" src="https://github.com/user-attachments/assets/90837fa9-2eae-44a1-bd7a-3beff907be47" />
+
+<img width="966" height="701" alt="image" src="https://github.com/user-attachments/assets/ed495970-5125-43ff-9910-c6031e40286c" />
+
+<img width="966" height="710" alt="image" src="https://github.com/user-attachments/assets/b32a9b4b-01db-46e3-bb19-45ddae1358ee" />
+
+---
 ## 🧠 Business Context
 
 As California pushes toward renewable energy, **identifying feasible solar installation sites** is vital.
